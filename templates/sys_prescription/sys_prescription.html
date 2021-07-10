@@ -1,0 +1,47 @@
+a{% extends 'layout/layout.html' %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/signup.css" />
+{% endblock%}
+
+{% block body %}
+{% if session['auth'] %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark float-right" style="z-index:0;">
+    <font style="margin-left:90%; color:white;">{{curr_user}}</font>
+    <a style="margin-left:1%" href="{{ url_for('logout')}}">
+        <button class="btn btn-outline-danger" type="submit">
+            Logout
+        </button>
+    </a>
+</nav>
+{% endif %}
+
+<form class="form-signin" method="POST" style="margin-top:3%; max-width:25%; width:100%;">
+    <center>
+        <h1 class="h4 mb-3 font-weight-normal"><img src="/static/open-iconic/svg/task.svg" width=10%
+                style="margin-right : 2%;" />Prescription</h1>
+        <hr>
+
+        {% if err_chk == 1 %}
+        <div class="alert alert-danger" role="alert">
+            You have already registered.
+        </div>
+        {% endif %}
+
+        {% if enable == "1": %}
+        <div class="form-group">
+            <textarea class="form-control" id="inputPrescription" name="inputPrescription" rows="10"
+                disabled>{{ data }}</textarea>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" disabled>Submit Prescription</button>
+        {% else %}
+        <div class="form-group">
+            <textarea class="form-control" id="inputPrescription" name="inputPrescription" rows="10">{{ data }}</textarea>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Submit Prescription</button>
+        {% endif %}
+    </center>
+
+</form>
+
+<script src="/static/js/password_validation.js"></script>
+{% endblock %}

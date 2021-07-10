@@ -1,0 +1,49 @@
+{% extends 'layout/layout.html' %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/signup.css" />
+{% endblock%}
+
+{% block body %}
+{% if session['auth'] %}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark float-right" style="z-index:0;">
+    <font style="margin-left:90%; color:white;">{{curr_user}}</font>
+    <a style="margin-left:1%" href="{{ url_for('logout')}}">
+        <button class="btn btn-outline-danger" type="submit">
+            Logout
+        </button>
+    </a>
+</nav>
+{% endif %}
+
+<form class="form-signin" method="POST" style="margin-top:3%; max-width:25%; width:100%;">
+    <center>
+        <h1 class="h4 mb-3 font-weight-normal"><img src="/static/open-iconic/svg/task.svg" width=10%
+                style="margin-right : 2%;" />Schedule Checkup</h1>
+        <hr>
+
+        {% if err_chk == 1 %}
+        <div class="alert alert-danger" role="alert">
+            You have already registered.
+        </div>
+        {% endif %}
+
+        <div class="form-group">
+        <label for="formGroupExampleInput" style="float:left;">Date</label>
+        <input type="date" id="inputDate" name="inputDate" class="form-control mb-1" />
+        </div>
+
+        <div class="form-group">
+            <label for="formGroupExampleInput" style="float:left;">Start Time</label>
+            <input type="time" id="inputStartTime" name="inputStartTime" class="form-control mb-1" />
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput" style="float:left;">End Time</label>
+            <input type="time" id="inputEndTime" name="inputEndTime" class="form-control mb-1" />
+        </div>        
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Create Schedule</button>
+    </center>
+</form>
+
+<script src="/static/js/password_validation.js"></script>
+{% endblock %}
