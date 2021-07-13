@@ -1,6 +1,6 @@
-# mqtt-chat-server
+# doctor-app
 
-This project is developed on Python Platform. This is a simple chatting application implemented with MQTT protocol.
+This project is developed on Python Platform.
 - **Python Version** : 3.6+
 - **Flask Version** : 1.0.2
 
@@ -18,19 +18,10 @@ This project is developed on Python Platform. This is a simple chatting applicat
 ###### Install SQLAlchemy for ORM
 > $ **pip3 install psycopg2 Flask-SQLAlchemy Flask-Migrate SQLAlchemy**
 
-###### Install Flask-MQTT
-> $ **pip3 install Flask-MQTT**
-
-###### Install SocketIO
-> $ **pip3 install flask-socketio**
-
-###### Install Eventlet
-> $ **pip3 install eventlet**
-
 ## Setup Project
 ###### Clone GIT
-> - $ **git clone https://github.com/abasu17/mqtt-chat-server.git**
-> - $ **cd mqtt-chat-server**
+> - $ **git clone https://github.com/abasu17/doctor-app**
+> - $ **cd doctor-app**
 > - $ **python3**
 
 ###### Setup Database
